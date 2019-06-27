@@ -348,9 +348,9 @@ class CameraActivity : AppCompatActivity(), ActivityCompat.OnRequestPermissionsR
                 MEDIA_RECORDER_REQUEST)
     }
 
-    @Override
-    fun onRequestPermissionsResult(requestCode: Int, @NonNull permissions: Array<String>,
-                                   @NonNull grantResults: IntArray) {
+
+    override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<String>,
+                                            grantResults: IntArray) {
 
         if (MEDIA_RECORDER_REQUEST != requestCode) {
             super.onRequestPermissionsResult(requestCode, permissions, grantResults)

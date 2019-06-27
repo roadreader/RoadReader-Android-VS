@@ -31,9 +31,6 @@ class ListAdapter(private val context: Context) : RecyclerView.Adapter<ListAdapt
 
     private val videos: Array<File>?
 
-    val itemCount: Int
-        @Override
-        get() = videos?.size ?: 0
 
     class VideoViewHolder internal constructor(item: View) : RecyclerView.ViewHolder(item) {
 
