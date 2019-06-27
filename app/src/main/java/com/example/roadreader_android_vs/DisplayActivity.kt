@@ -37,8 +37,8 @@ class DisplayActivity : AppCompatActivity() {
         }
 
 
-    @Override
-    protected fun onCreate(savedInstanceState: Bundle) {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_display)
 
@@ -47,7 +47,7 @@ class DisplayActivity : AppCompatActivity() {
         playBtn = findViewById(R.id.playBtn)
 
         uploadBtn = findViewById(R.id.uploadBtn)
-        uploadBtn!!.setOnClickListener(object : View.OnClickListener() {
+        uploadBtn!!.setOnClickListener(object : View.OnClickListener {
             override fun onClick(v: View) {
                 try {
                     upload()

@@ -58,7 +58,7 @@ class CameraActivity : AppCompatActivity(), ActivityCompat.OnRequestPermissionsR
 
     private val requiredPermissions = arrayOf<String>(android.Manifest.permission.WRITE_EXTERNAL_STORAGE, android.Manifest.permission.RECORD_AUDIO, android.Manifest.permission.CAMERA, android.Manifest.permission.ACCESS_FINE_LOCATION)
 
-    protected fun onCreate(savedInstanceState: Bundle) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_camera)
 
@@ -134,10 +134,10 @@ class CameraActivity : AppCompatActivity(), ActivityCompat.OnRequestPermissionsR
 
             var trip: Trip
             try {
-                trip = gps!!.getTrip().clone() as Trip
+                trip = gps!!.trip.clone() as Trip
             } catch (e: CloneNotSupportedException) {
                 e.printStackTrace()
-                trip = gps!!.getTrip()
+                trip = gps!!.trip
                 Log.d("RoadReader", "failed to clone trip")
             }
 
@@ -160,7 +160,7 @@ class CameraActivity : AppCompatActivity(), ActivityCompat.OnRequestPermissionsR
                 val tripFile = File(tripInternalDir, "$timeStamp.json")
                 //gson.toJson(trip, new FileWriter(tripFile));
                 Log.d("trip", "Writing trip to file")
-                outputStream = FileOutputStream(getFilesDir() + "/" + "Trips/" + tripFile.getName())
+                outputStream = FileOutputStream(getFilesDir() as String + "/" + "Trips/" + tripFile.getName())
                 //outputStream = openFileOutputtripFile.getAbsolutePath(), Context.MODE_PRIVATE);
                 outputStream!!.write(gson.toJson(trip).getBytes())
                 outputStream!!.close()
@@ -184,7 +184,7 @@ class CameraActivity : AppCompatActivity(), ActivityCompat.OnRequestPermissionsR
             startActivity(Intent(this@CameraActivity, ListActivity::class.java))
         } else {
 
-            timeStamp = String.valueOf(System.currentTimeMillis() / 1000L)
+            timeStamp = (System.currentTimeMillis() / 1000L) as String
 
             // BEGIN_INCLUDE(prepare_start_media_recorder)
 
@@ -199,23 +199,20 @@ class CameraActivity : AppCompatActivity(), ActivityCompat.OnRequestPermissionsR
         captureButton!!.setText(title)
     }
 
-    @Override
-    protected fun onResume() {
+    protected override fun onResume() {
         super.onResume()
         if (gps != null)
             gps!!.resume()
     }
 
-    @Override
-    protected fun onStart() {
+    protected override fun onStart() {
         super.onStart()
-        user = FirebaseAuth.getInstance().getCurrentUser()
+        user = FirebaseAuth.getInstance().getCurrentUser()!!
         if (gps != null)
             gps!!.start()
     }
 
-    @Override
-    protected fun onPause() {
+    protected override fun onPause() {
         super.onPause()
         layout!!.removeAllViews()
         // if we are using MediaRecorder, release it first
@@ -224,8 +221,7 @@ class CameraActivity : AppCompatActivity(), ActivityCompat.OnRequestPermissionsR
         releaseCamera()
     }
 
-    @Override
-    protected fun onStop() {
+    protected override fun onStop() {
         super.onStop()
         if (gps != null)
             gps!!.stop()
@@ -308,7 +304,7 @@ class CameraActivity : AppCompatActivity(), ActivityCompat.OnRequestPermissionsR
 
         // Step 3: Set a CamcorderProfile (requires API Level 8 or higher)
         mMediaRecorder!!.setProfile(profile)
-        mMediaRecorder!!.setCaptureRate(5)
+        mMediaRecorder!!.setCaptureRate(5.0)
 
         // Step 4: Set output file
         mOutputFile = CameraHelper.getOutputMediaFile(CameraHelper.MEDIA_TYPE_VIDEO, CameraHelper.EXTERNAL_SAVE, timeStamp)
@@ -404,8 +400,7 @@ class CameraActivity : AppCompatActivity(), ActivityCompat.OnRequestPermissionsR
             return true
         }
 
-        @Override
-        protected fun onPostExecute(result: Boolean) {
+        override fun onPostExecute(result: Boolean) {
             if (!result) {
                 this@CameraActivity.finish()
             }

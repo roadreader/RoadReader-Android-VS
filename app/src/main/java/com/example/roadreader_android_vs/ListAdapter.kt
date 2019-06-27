@@ -25,6 +25,9 @@ import java.util.Locale
  */
 
 class ListAdapter(private val context: Context) : RecyclerView.Adapter<ListAdapter.VideoViewHolder>() {
+    override fun getItemCount(): Int {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
 
     private val videos: Array<File>?
 
@@ -76,7 +79,7 @@ class ListAdapter(private val context: Context) : RecyclerView.Adapter<ListAdapt
         mmr.setDataSource(videos[i].getAbsolutePath())
         var str_duration = mmr.extractMetadata(MediaMetadataRetriever.METADATA_KEY_DURATION)
         val duration = Integer.valueOf(str_duration) / 1000
-        str_duration = String.valueOf(duration) + "s"
+        str_duration = (duration as String) + "s"
         videoViewHolder.videoLength.setText(str_duration)
 
         var videoName = videos[i].getName()

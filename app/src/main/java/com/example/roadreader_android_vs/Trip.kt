@@ -13,7 +13,7 @@ class Trip (val userId: String) : Cloneable {
     }
 
     @Throws(CloneNotSupportedException::class)
-    override fun clone(): Any {
+    public override fun clone(): Any {
         return super.clone()
     }
 

@@ -23,8 +23,7 @@ class SignupActivity : AppCompatActivity() {
     private val r_password: EditText? = null
 
 
-    @Override
-    protected fun onCreate(savedInstanceState: Bundle) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_signup)
     }

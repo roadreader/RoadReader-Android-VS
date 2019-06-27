@@ -134,15 +134,15 @@ class GPS(context: Context, id: String) : LocationListener {
     }
 
 
-    protected fun resume() {
+    fun resume() {
         sensor.resume()
     }
 
-    protected fun start() {
+    fun start() {
         sensor.start()
     }
 
-    protected fun stop() {
+    fun stop() {
         locationManager.removeUpdates(locationListener)
         gpsTask.cancel(true)
         sensor.stop()
