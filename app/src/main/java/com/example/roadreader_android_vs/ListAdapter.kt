@@ -14,7 +14,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import android.widget.Toast
-import roadreader.roadreader_android.ListAdapter.VideoViewHolder
+import com.example.roadreader_android_vs.ListAdapter.VideoViewHolder
 
 import java.io.File
 import java.text.SimpleDateFormat

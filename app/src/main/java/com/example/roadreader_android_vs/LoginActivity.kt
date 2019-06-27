@@ -59,8 +59,7 @@ class LoginActivity : AppCompatActivity() {
 
         val signInButton = findViewById(R.id.sign_in_button) as SignInButton
         signInButton.setOnClickListener(object : View.OnClickListener() {
-            @Override
-            fun onClick(v: View) {
+            override fun onClick(v: View) {
                 signUpGoogle()
             }
         })
@@ -71,16 +70,14 @@ class LoginActivity : AppCompatActivity() {
 
         signUp = findViewById(R.id.signup) as Button
         signUp!!.setOnClickListener(object : View.OnClickListener() {
-            @Override
-            fun onClick(v: View) {
+            override fun onClick(v: View) {
                 signupUser(email!!.getText().toString(), password!!.getText().toString())
             }
         })
 
         login = findViewById(R.id.login) as Button
         login!!.setOnClickListener(object : View.OnClickListener() {
-            @Override
-            fun onClick(v: View) {
+            override fun onClick(v: View) {
 
                 if (mAuth!!.getCurrentUser() != null) {
                     startActivity(Intent(this@LoginActivity, ListActivity::class.java))
@@ -110,8 +107,7 @@ class LoginActivity : AppCompatActivity() {
         })
     }
 
-    @Override
-    fun onStart() {
+    override fun onStart() {
         super.onStart()
         val currentUser = mAuth!!.getCurrentUser()
 
@@ -155,9 +151,8 @@ class LoginActivity : AppCompatActivity() {
 
         val credential = GoogleAuthProvider.getCredential(acct.getIdToken(), null)
         mAuth!!.signInWithCredential(credential)
-                .addOnCompleteListener(this, object : OnCompleteListener<AuthResult>() {
-                    @Override
-                    fun onComplete(@NonNull task: Task<AuthResult>) {
+                .addOnCompleteListener(this, object : OnCompleteListener<AuthResult> {
+                    override fun onComplete(task: Task<AuthResult>) {
                         if (task.isSuccessful()) {
                             Log.d("google sign in", "signInWithCredential:success")
                             val user = mAuth!!.getCurrentUser()
@@ -189,8 +184,7 @@ class LoginActivity : AppCompatActivity() {
     private fun signupUser(email: String, password: String) {
         mAuth!!.createUserWithEmailAndPassword(email, password)
                 .addOnCompleteListener(this, object : OnCompleteListener<AuthResult>() {
-                    @Override
-                    fun onComplete(@NonNull task: Task<AuthResult>) {
+                    override fun onComplete(task: Task<AuthResult>) {
                         if (task.isSuccessful()) {
                             Log.d("firebase", "signInWithEmail:success")
                             val user = mAuth!!.getCurrentUser()
