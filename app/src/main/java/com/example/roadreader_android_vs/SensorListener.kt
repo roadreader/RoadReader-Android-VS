@@ -6,11 +6,8 @@ import android.hardware.SensorEvent
 import android.hardware.SensorEventListener
 import android.hardware.SensorManager
 import android.util.Log
-
-import java.io.File
 import java.io.FileWriter
-import java.util.ArrayList
-import java.util.HashMap
+import java.util.*
 
 
 class SensorListener

@@ -1,13 +1,12 @@
 package com.example.roadreader_android_vs
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
-import android.webkit.WebView
 import android.widget.Button
 
 class ListActivity : AppCompatActivity() {

@@ -1,18 +1,10 @@
 package com.example.roadreader_android_vs
 
 import android.content.Intent
-import android.graphics.drawable.Drawable
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
 import android.view.View
-import android.widget.Button
-import android.widget.ImageButton
-import android.widget.TextView
-import android.widget.Toast
-import android.widget.VideoView
-
-import com.google.firebase.storage.FirebaseStorage
-
+import android.widget.*
 import java.io.File
 import java.io.FileNotFoundException
 

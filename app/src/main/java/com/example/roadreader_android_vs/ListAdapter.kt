@@ -2,7 +2,6 @@ package com.example.roadreader_android_vs
 
 import android.content.Context
 import android.content.Intent
-import android.graphics.Bitmap
 import android.media.MediaMetadataRetriever
 import android.media.ThumbnailUtils
 import android.os.Environment
@@ -13,12 +12,9 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import android.widget.Toast
-import com.example.roadreader_android_vs.ListAdapter.VideoViewHolder
-
 import java.io.File
 import java.text.SimpleDateFormat
-import java.util.Locale
+import java.util.*
 
 /**
  * Created by chadlohrli on 5/13/19.
