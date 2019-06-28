@@ -3,7 +3,7 @@ package com.example.roadreader_android_vs
 import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
-import android.support.v7.widget.DividerItemDecoration
+//import android.support.v7.widget.DividerItemDecoration
 import android.support.v7.widget.LinearLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.View
@@ -11,7 +11,7 @@ import android.widget.Button
 
 class ListActivity : AppCompatActivity() {
     private var recyclerView: RecyclerView? = null
-    private var mAdapter: RecyclerView.Adapter? = null
+    private var mAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>? = null
     private var layoutManager: RecyclerView.LayoutManager? = null
     private var recordBtn: Button? = null
 
@@ -28,7 +28,7 @@ class ListActivity : AppCompatActivity() {
         mAdapter = ListAdapter(this)
         recyclerView!!.setAdapter(mAdapter)
 
-        recyclerView!!.addItemDecoration(DividerItemDecoration(recyclerView!!.getContext(), DividerItemDecoration.VERTICAL))
+        //recyclerView!!.addItemDecoration(DividerItemDecoration(recyclerView!!.getContext(), DividerItemDecoration.VERTICAL))
 
         recordBtn = findViewById(R.id.recordBtn)
         recordBtn!!.setOnClickListener(object : View.OnClickListener {

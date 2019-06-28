@@ -7,7 +7,6 @@ import java.util.HashMap
 class Trip (val userId: String) : Cloneable {
 
     internal var gpsPoints: MutableList<GPSPoint>
-    internal val timeStamp:
 
     init {
         gpsPoints = ArrayList()
