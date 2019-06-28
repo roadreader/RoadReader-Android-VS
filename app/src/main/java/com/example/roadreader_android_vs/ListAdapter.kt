@@ -6,7 +6,7 @@ import android.media.MediaMetadataRetriever
 import android.media.ThumbnailUtils
 import android.os.Environment
 import android.provider.MediaStore
-import android.support.v7.widget.RecyclerView
+import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -20,7 +20,7 @@ import java.util.*
  * Created by chadlohrli on 5/13/19.
  */
 
-class ListAdapter(private val context: Context) : RecyclerView.Adapter<ListAdapter.VideoViewHolder>() {
+class ListAdapter(private val context: Context) : androidx.recyclerview.widget.RecyclerView.Adapter<ListAdapter.VideoViewHolder>() {
     override fun getItemCount(): Int {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
@@ -28,7 +28,7 @@ class ListAdapter(private val context: Context) : RecyclerView.Adapter<ListAdapt
     private val videos: Array<File>?
 
 
-    class VideoViewHolder internal constructor(item: View) : RecyclerView.ViewHolder(item) {
+    class VideoViewHolder internal constructor(item: View) : androidx.recyclerview.widget.RecyclerView.ViewHolder(item) {
 
         internal var videoName: TextView
         internal var videoTimestamp: TextView

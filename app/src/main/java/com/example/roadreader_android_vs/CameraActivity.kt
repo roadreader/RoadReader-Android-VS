@@ -9,8 +9,8 @@ import android.media.CamcorderProfile
 import android.media.MediaRecorder
 import android.os.AsyncTask
 import android.os.Bundle
-import android.support.v4.app.ActivityCompat
-import android.support.v7.app.AppCompatActivity
+import androidx.core.app.ActivityCompat
+import androidx.appcompat.app.AppCompatActivity
 import android.util.Log
 import android.view.TextureView
 import android.view.View

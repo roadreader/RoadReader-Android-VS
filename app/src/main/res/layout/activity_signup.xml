@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="roadreader.roadreader_android.SignupActivity"
-    tools:layout_editor_absoluteY="81dp">
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                                   xmlns:app="http://schemas.android.com/apk/res-auto"
+                                                   xmlns:tools="http://schemas.android.com/tools"
+                                                   android:layout_width="match_parent"
+                                                   android:layout_height="match_parent"
+                                                   tools:context="roadreader.roadreader_android.SignupActivity"
+                                                   tools:layout_editor_absoluteY="81dp">
 
     <EditText
         android:id="@+id/passwordText2"
@@ -81,4 +81,4 @@
         app:layout_constraintStart_toStartOf="@+id/passwordText2"
         app:layout_constraintTop_toBottomOf="@+id/emailText" />
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
