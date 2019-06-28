@@ -31,7 +31,7 @@ class GPS(context: Context, id: String) : LocationListener {
         trip = Trip(id)
         sensor = SensorListener(context)
 
-        val start_time = System.currentTimeMillis()
+        val startTime = System.currentTimeMillis()
 
         locationManager = context.getSystemService(Context.LOCATION_SERVICE) as LocationManager
 
@@ -39,7 +39,7 @@ class GPS(context: Context, id: String) : LocationListener {
             override fun onLocationChanged(location: Location) {
                 val lng = location.longitude
                 val lat = location.latitude
-                val time = System.currentTimeMillis() - start_time
+                val time = System.currentTimeMillis() - startTime
                 Log.d(
                     "trip", "lat: " + lat + ", lng: " + lng + ", " +
                             "time: " + time + "\n"
