@@ -154,7 +154,7 @@ class CameraActivity : AppCompatActivity(), ActivityCompat.OnRequestPermissionsR
                 Log.d("trip", "Writing trip to file")
                 outputStream = FileOutputStream(getFilesDir() as String + "/" + "Trips/" + tripFile.getName())
                 //outputStream = openFileOutputtripFile.getAbsolutePath(), Context.MODE_PRIVATE);
-                outputStream!!.write(gson.toJson(trip).getBytes())
+                outputStream!!.write(gson.toJson(trip).toByteArray())
                 outputStream!!.close()
                 Log.d("trip", "Trip to String:")
                 Log.d("trip", gson.toJson(trip))
@@ -276,7 +276,7 @@ class CameraActivity : AppCompatActivity(), ActivityCompat.OnRequestPermissionsR
             // with {@link SurfaceView}
             mCamera!!.setPreviewTexture(mPreview!!.getSurfaceTexture())
         } catch (e: IOException) {
-            Log.e(TAG, "Surface texture is unavailable or unsuitable" + e.getMessage())
+            Log.e(TAG, "Surface texture is unavailable or unsuitable" + e.message)
             return false
         }
 
@@ -311,11 +311,11 @@ class CameraActivity : AppCompatActivity(), ActivityCompat.OnRequestPermissionsR
         try {
             mMediaRecorder!!.prepare()
         } catch (e: IllegalStateException) {
-            Log.d(TAG, "IllegalStateException preparing MediaRecorder: " + e.getMessage())
+            Log.d(TAG, "IllegalStateException preparing MediaRecorder: " + e.message)
             releaseMediaRecorder()
             return false
         } catch (e: IOException) {
-            Log.d(TAG, "IOException preparing MediaRecorder: " + e.getMessage())
+            Log.d(TAG, "IOException preparing MediaRecorder: " + e.message)
             releaseMediaRecorder()
             return false
         }
@@ -376,7 +376,7 @@ class CameraActivity : AppCompatActivity(), ActivityCompat.OnRequestPermissionsR
     internal inner class MediaPrepareTask : AsyncTask<Void, Void, Boolean>() {
 
         @Override
-        protected fun doInBackground(vararg voids: Void): Boolean {
+        protected override fun doInBackground(vararg voids: Void): Boolean {
             // initialize video camera
             if (prepareVideoRecorder()) {
                 // Camera is available and unlocked, MediaRecorder is prepared,
