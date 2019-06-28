@@ -11,7 +11,7 @@ import android.widget.Button
 
 class ListActivity : AppCompatActivity() {
     private var recyclerView: RecyclerView? = null
-    private var mAdapter: RecyclerView.Adapter<RecyclerView.ViewHolder>? = null
+    private var mAdapter: RecyclerView.Adapter<ListAdapter.VideoViewHolder>? = null
     private var layoutManager: RecyclerView.LayoutManager? = null
     private var recordBtn: Button? = null
 

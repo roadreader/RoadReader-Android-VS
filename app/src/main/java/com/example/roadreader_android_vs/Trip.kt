@@ -1,8 +1,9 @@
 package com.example.roadreader_android_vs
 
 
-import java.util.ArrayList
-import java.util.HashMap
+import java.security.Timestamp
+import java.text.SimpleDateFormat
+import java.util.*
 
 class Trip (val userId: String) : Cloneable {
 
@@ -15,6 +16,16 @@ class Trip (val userId: String) : Cloneable {
     @Throws(CloneNotSupportedException::class)
     public override fun clone(): Any {
         return super.clone()
+    }
+
+    private fun getDateTime(s: String): String? {
+        try {
+            val sdf = SimpleDateFormat("MM/dd/yyyy")
+            val netDate = Date((s.toLong() * 1000))
+            return sdf.format(netDate)
+        } catch (e: Exception) {
+            return e.toString()
+        }
     }
 
     /**
